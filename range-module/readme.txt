@@ -1,4 +1,4 @@
 https://leetcode-cn.com/problems/range-module/
 
-ver1: 38 / 53, Time Limit Exceeded
-ver2: 8 / 53, Time Limit Exceeded
+ver1: bit map, 38 / 53, TLE
+ver2: binary search tree, 8 / 53, TLE
