@@ -16,7 +16,7 @@ public:
         int count = 0;
         for (int i = 2; i <= 2 * limit; i++){
             count += diff[i];
-            if (count < MinCount) MinCount = count;
+            MinCount = min(MinCount, count);
         }
 
         return MinCount;
