@@ -33,8 +33,8 @@ public:
         int Bt0 = 0, Bt1 = 0, Bh = 0;
         queueA[Ah++] = beginWord;
         queueB[Bh++] = endWord;
-        visitedA[beginWord] = 1;
-        visitedB[endWord] = 1;
+        visitedA[beginWord] = -2;
+        visitedB[endWord] = -2;
 
         for (; At0 < Ah; count++){
             for (int i = At0; i < At1; ++i){
@@ -44,8 +44,8 @@ public:
                     
                     if (visitedA[word] == -1){            
                         if (similarity(beginWord, word) == 1) {
-                            if (visitedB[word] >= 0) {
-                                return visitedB[word] + count;
+                            if (visitedB[word] == -2) {
+                                return 2 * count;
                             }
                             visitedA[word] = -2;
                             queueA[Ah++] = word;
@@ -64,8 +64,8 @@ public:
                     
                     if (visitedB[word] == -1){            
                         if (similarity(endWord, word) == 1) {
-                            if (visitedA[word] >= 0) {
-                                return visitedA[word] + count;
+                            if (visitedA[word] == -2) {
+                                return 2 * count + 1;
                             }
                             visitedB[word] = -2;
                             queueB[Bh++] = word;
