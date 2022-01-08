@@ -34,8 +34,9 @@ public:
         int count = 0;
 
         for (;!queueA.empty() && !queueB.empty(); count++){
-            for (int i = count; !queueA.empty() && i == visited[queueA.front()].first;){
+            for (;!queueA.empty();){
                 beginWord = queueA.front();
+                if (count != visited[beginWord].first) break;
                 queueA.pop();
                 for (string word: wordList){
                     if (visited[word].first == -1){            
@@ -50,8 +51,9 @@ public:
                 }
             }
 
-            for (int i = count; !queueB.empty() && i == visited[queueB.front()].second;){
+            for (;!queueB.empty();){
                 endWord = queueB.front();
+                if (count != visited[endWord].second) break;
                 queueB.pop();
                 for (string word: wordList){
                     if (visited[word].second == -1){            
