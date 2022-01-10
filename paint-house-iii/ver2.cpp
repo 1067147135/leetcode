@@ -3,7 +3,7 @@ class Solution {
 public:
     int minCost(vector<int>& houses, vector<vector<int>>& cost, int m, int n, int target) {
         // dp[k][j] = minimum cost where we have k neighbors until now, 
-        // and the last house is painted with the color j, 
+        // and the last house is painted with the color j
         vector<vector<int>> dp(target + 1, vector<int>(n + 1, 1e9)); // initialization
         
         // iterate m times to reach final result
