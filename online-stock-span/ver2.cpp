@@ -2,16 +2,16 @@ class StockSpanner {
 public:
     stack<pair<int, int>> monotone;
     StockSpanner() {
-
+        monotone.push(make_pair(INT_MAX, 0));
     }
     
     int next(int price) {
-        if (monotone.empty() || monotone.top().first > price) {
+        if (monotone.top().first > price) {
             monotone.push(make_pair(price, 1));
         }
         else {
             int count = 1;
-            while (!monotone.empty() && monotone.top().first <= price){
+            while (monotone.top().first <= price){
                 count += monotone.top().second;
                 monotone.pop();
             }
